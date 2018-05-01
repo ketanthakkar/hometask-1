@@ -1,0 +1,19 @@
+:root {
+    --button-active:pink;
+    --button-unactive: black;
+}
+.button__active{
+    background:var(--button-active);
+    border: solid var(--button-active);
+    width:70px;
+    height: 30px;
+    color:white;
+}
+
+.button__unactive {
+    background:var(--button-unactive);
+    border: solid var(--button-unactive);
+    width:70px;
+    height: 30px;
+    color:white;
+}

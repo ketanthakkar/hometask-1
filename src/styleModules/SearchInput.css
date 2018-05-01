@@ -1,0 +1,12 @@
+:root {
+    --search-input-backgound:black;
+}
+.searchInput {
+    width:100%;
+    height: 40px;
+    box-sizing: border-box;
+    color:white;
+    background:var(--search-input-backgound);
+    border: solid var(--search-input-backgound);
+    border-bottom-color: pink;
+}

@@ -1,0 +1,26 @@
+.moviePanel-wrapper {
+    width:1200px;
+    height: 400px;
+    padding: 50px 100px;
+    box-sizing: border-box;
+    background: black;
+    display:flex;
+}
+
+.moviePanel-column-left {
+    width: 30%;
+    float: left;
+    display: flex;
+    justify-content: center;
+}
+
+.moviePanel-column-right {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.moviePanel-oneline {
+    display: flex;
+    align-items: center;
+}

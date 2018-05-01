@@ -1,16 +1,22 @@
 import React , {Component, Fragment} from 'react';
-import FirstComponent from './components/FirstComponent';
-import SecondComponent from './components/SecondComponent';
+import SearchPanel from './components/SearchPanel';
+import mockData from './mockData';
+import MoviePanel from './components/MoviePanel';
+import MovieListItems from './components/MovieListItems';
+import ErrorBoundary from './components/ErrorBoundary';
+
+import './styleModules/App.css';
 
 export default class App extends React.Component {
 
     render() {
-        console.log('---------------',process.env.NODE_ENV)
         return (
-            <Fragment>
-                <FirstComponent />
-                <SecondComponent />
-            </Fragment>
-        )
+            <div className = 'app-wrapper'>
+                <MoviePanel />
+                <ErrorBoundary>
+                    <MovieListItems />
+                </ErrorBoundary>
+            </div>
+        );
     }
 }
