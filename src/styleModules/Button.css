@@ -2,18 +2,18 @@
     --button-active:pink;
     --button-unactive: black;
 }
-.button__active{
-    background:var(--button-active);
-    border: solid var(--button-active);
+
+.button {
     width:70px;
     height: 30px;
     color:white;
 }
+.button--active{
+    background:var(--button-active);
+    border: solid var(--button-active);
+}
 
-.button__unactive {
+.button--unactive {
     background:var(--button-unactive);
     border: solid var(--button-unactive);
-    width:70px;
-    height: 30px;
-    color:white;
 }

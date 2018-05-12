@@ -3,7 +3,7 @@ import '../styleModules/Button.css';
 
 const Button = ({name, active, handleClick}) => {
     return (
-        <button className = {active ? 'button__active' : 'button__unactive'} onClick = {handleClick}>
+        <button className = {`button ${active ? 'button--active' : 'button--unactive'}`} onClick = {handleClick}>
             {name} 
         </button>
     );
