@@ -1,0 +1,435 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieItem shoud render MovieItem component 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieItem
+    date="date"
+    genre={
+      Array [
+        "genre",
+      ]
+    }
+    name="name"
+    url="url"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Image
+          alt="name"
+          src="url"
+        />,
+        <span>
+          name
+        </span>,
+        <br />,
+        <span>
+          date
+        </span>,
+        <br />,
+        <span>
+          genre
+        </span>,
+      ],
+      "className": "movieItem-wrapper",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "alt": "name",
+          "src": "url",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "name",
+        },
+        "ref": null,
+        "rendered": "name",
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "br",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "date",
+        },
+        "ref": null,
+        "rendered": "date",
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "br",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "genre",
+        },
+        "ref": null,
+        "rendered": "genre",
+        "type": "span",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Image
+            alt="name"
+            src="url"
+          />,
+          <span>
+            name
+          </span>,
+          <br />,
+          <span>
+            date
+          </span>,
+          <br />,
+          <span>
+            genre
+          </span>,
+        ],
+        "className": "movieItem-wrapper",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "alt": "name",
+            "src": "url",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "name",
+          },
+          "ref": null,
+          "rendered": "name",
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "date",
+          },
+          "ref": null,
+          "rendered": "date",
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "genre",
+          },
+          "ref": null,
+          "rendered": "genre",
+          "type": "span",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`MovieItem should not modify props 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieItem
+    date="date"
+    genre={
+      Array [
+        "genre",
+      ]
+    }
+    name="name"
+    url="url"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Image
+          alt="name"
+          src="url"
+        />,
+        <span>
+          name
+        </span>,
+        <br />,
+        <span>
+          date
+        </span>,
+        <br />,
+        <span>
+          genre
+        </span>,
+      ],
+      "className": "movieItem-wrapper",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "alt": "name",
+          "src": "url",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "name",
+        },
+        "ref": null,
+        "rendered": "name",
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "br",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "date",
+        },
+        "ref": null,
+        "rendered": "date",
+        "type": "span",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": "br",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "genre",
+        },
+        "ref": null,
+        "rendered": "genre",
+        "type": "span",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Image
+            alt="name"
+            src="url"
+          />,
+          <span>
+            name
+          </span>,
+          <br />,
+          <span>
+            date
+          </span>,
+          <br />,
+          <span>
+            genre
+          </span>,
+        ],
+        "className": "movieItem-wrapper",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "alt": "name",
+            "src": "url",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "name",
+          },
+          "ref": null,
+          "rendered": "name",
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "date",
+          },
+          "ref": null,
+          "rendered": "date",
+          "type": "span",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": "br",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "genre",
+          },
+          "ref": null,
+          "rendered": "genre",
+          "type": "span",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
