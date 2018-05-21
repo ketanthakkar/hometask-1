@@ -1,0 +1,4 @@
+export const GET_DEFAULT_MOVIES = 'GET_DEFAULT_MOVIES';
+export const GET_MOVIE_BY_ID = 'GET_MOVIE_BY_ID';
+export const CLEAN_MOVIE_BY_ID = 'CLEAN_MOVIE_BY_ID';
+export const SEARCH_MOVIE = 'SEARCH_MOVIE';

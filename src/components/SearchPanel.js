@@ -2,42 +2,104 @@ import React, { Component } from 'react';
 import '../styleModules/SearchPanel.css';
 import SearchInput from './SearchInput';
 import Button from './Button';
+import { connect } from 'react-redux';
+import searchMovie from '../actions/searchMovie';
 
 class SearchPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: true
+            sortBy: 'release_data',
+            searchBy: 'title',
+            search:'',
         }
-        this.handleClick = this.handleClick.bind(this)
+
     }
 
-    handleClick() {
-        this.setState((prevState, props) => {
-            return {active: !prevState.active}
+    makeParams = () => {
+        let params = Object.entries(this.state);
+        console.log(params)
+        let arr = params.map(item => item.join('='));
+        return arr.join('&');
+    }
+    
+    handleClick = (e) => {
+        this.setState({
+            searchBy:e.target.id,
+        })
+    }
+
+    handleSortBy = (e) => {
+        this.setState({
+            sortBy:e.target.id
         });
-        console.log('lakjf;kf')
+    }
+
+    handleSearch = () => {
+        const params = this.makeParams();
+        this.props.searchMovie(params);
+    }
+
+    handleChangeInput = (e) => {
+        this.setState({
+            search:e.target.value,
+        })
+    }
+
+    componentDidUpdate() {
+        console.log('component to update', this.makeParams());
     }
 
     render() {
         return (
             <div className = 'searchPanel-wrapper'>
                 <span className = 'searchPanel-title'>Find your movie</span>
-                <SearchInput />
+                <SearchInput 
+                    value = {this.state.search}
+                    handleChange = {this.handleChangeInput}
+                />
 
                 <span className = 'searchPanel-title'> Search by </span>
                 <Button name = 'title' 
-                        active = {this.state.active}
+                        id = 'title'
+                        active = {this.state.searchBy}
                         handleClick = {this.handleClick} 
                 />
                 <Button name = 'genre' 
-                        active = {!this.state.active}
+                        id = 'genres'
+                        active = {this.state.searchBy}
                         handleClick = {this.handleClick}
                 />
-                <Button name = 'search' active />
+                <Button 
+                    name = 'search' 
+                    active 
+                    handleClick = {this.handleSearch}
+                />
+                <div>
+                    <span className = 'searchPanel-title'> sort by </span>
+                    <Button 
+                        name = 'release data' 
+                        id = 'release_data'
+                        active = {this.state.sortBy}
+                        handleClick = {this.handleSortBy}
+                    />
+                    <Button 
+                        name = 'rating' 
+                        active = {this.state.sortBy}
+                        id = 'vote_average'
+                        handleClick = {this.handleSortBy}
+                    />
+                </div>
             </div>
         )
     }
 }
 
-export default SearchPanel;
+export default connect(
+    state => ({
+        searchMovie: state.searchMovie,
+    }),
+    dispatch => ({
+        searchMovie: (params) => dispatch(searchMovie(params)),
+    })
+)(SearchPanel);

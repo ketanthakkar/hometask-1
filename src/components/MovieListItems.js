@@ -4,6 +4,7 @@ import MovieItem from './MovieItem';
 import '../styleModules/MovieListItems.css';
 import { connect } from 'react-redux';
 import getDefaultMovies from '../actions/getDefaultMovies';
+import getMovieById from '../actions/getMovieById';
 
 class MovieListItems extends Component {
   constructor(props) {
@@ -12,10 +13,11 @@ class MovieListItems extends Component {
 
   componentDidMount() {
     this.props.getMovies();
+    this.props.getMovieById(424785);
   }
 
   render() {
-    const data = this.props.movies.data.map(item => {
+    const data = mockData.data.map(item => {
         return (
             <MovieItem url = {item.poster_path}
                        name = {item.title}
@@ -38,5 +40,6 @@ export default connect(
     }),
     dispatch => ({
         getMovies: () => dispatch(getDefaultMovies()),
+        getMovieById: (id) => dispatch(getMovieById(id)),
     })
 )(MovieListItems);
