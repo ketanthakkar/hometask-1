@@ -5,8 +5,15 @@
   "main": "webpack.config.js",
   "scripts": {
     "test": "jest --config=jest.config.json",
+    "coverage": "jest --config=jest.config.json --coverage",
     "start": "webpack-dev-server --config ./webpack.dev.js",
-    "build": "webpack --config ./webpack.prod.js"
+    "build": "webpack --config ./webpack.prod.js",
+    "cypress:open": "cypress open"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.(css|less)$": "identity-obj-proxy"
+    }
   },
   "author": "",
   "license": "ISC",
@@ -19,7 +26,13 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^0.28.11",
+    "cypress": "^2.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^22.4.3",
+    "jest-css-modules": "^1.1.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-hot-loader": "^3.1.3",
