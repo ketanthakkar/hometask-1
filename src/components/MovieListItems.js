@@ -1,32 +1,40 @@
 import React, {Component} from 'react';
-import mockData from '../mockData';
-import MovieItem from './MovieItem';
-import '../styleModules/MovieListItems.css';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+// components
+import MovieItem from './MovieItem';
+
+// styles
+import '../styleModules/MovieListItems.css';
+
+// actions
 import getDefaultMovies from '../actions/getDefaultMovies';
 import getMovieById from '../actions/getMovieById';
+
 
 class MovieListItems extends Component {
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.getMovies();
-    this.props.getMovieById(424785);
-  }
-
   render() {
-    const data = mockData.data.map(item => {
+    const { searchMovie } = this.props;
+    let data;
+    if (searchMovie.searchMovie) {
+      data = searchMovie.searchMovie.data.map(item => {
         return (
-            <MovieItem url = {item.poster_path}
-                       name = {item.title}
-                       date = {item.release_date}
-                       genre = {item.genres}
-                       key = {item.id}
+        <Link to = {{pathname:`/search/${item.id}`, state:item.genres[0]}}  key = {item.id}>
+            <MovieItem 
+                    url = {item.poster_path}
+                    name = {item.title}
+                    date = {item.release_date}
+                    genre = {item.genres}
             />
+        </Link>
         )
-    })
+      })  
+    } 
     return (
         <div className = 'movieList-wrapper'>
             {data}
@@ -36,7 +44,8 @@ class MovieListItems extends Component {
 }
 export default connect(
     state => ({
-        movies: state.getDefaultMovies
+        movies: state.getDefaultMovies,
+        searchMovie: state.searchMovie,
     }),
     dispatch => ({
         getMovies: () => dispatch(getDefaultMovies()),

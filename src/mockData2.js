@@ -17,4 +17,3 @@ const mockData2 = {
   }
 
   export default mockData2;
-  

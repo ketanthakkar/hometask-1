@@ -13,11 +13,16 @@ import SearchPanel from './components/SearchPanel';
 import './styleModules/App.css';
 
 export default class App extends React.Component {
-
+    componentWillUpdate() {
+        console.log('----- app -------');
+    }
     render() {
+        console.log(this.props.location);
+        const params = new URLSearchParams(this.props.location.search);
+        params.append('sortOrder','desc');
         return (
             <div className = 'app-wrapper'>
-                <SearchPanel />
+                
                 <ErrorBoundary>
                     <MovieListItems />
                 </ErrorBoundary>

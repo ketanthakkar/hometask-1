@@ -3,4 +3,5 @@
     "roots": ["./src/"],
     "moduleFileExtensions": ["js","jsx"],
     "testPathIgnorePatterns": ["/node_modules/"]
+    
 }

@@ -1,16 +1,28 @@
 import React, {Component} from 'React';
-import mockData2 from '../mockData2';
+import { connect } from 'react-redux';
+
+// components
 import Image from './Image';
 import Title from './Title';
 import Description from './Description';
 import Tagline from './Tagline';
 import MovieVote from './MovieVote';
+
+// styles
 import '../styleModules/MoviePanel.css';
+
+// action 
+import getMovieById from '../actions/getMovieById';
+import {CLEAN_MOVIE_BY_ID} from '../actions/actionsType';
 
 class MoviePanel extends Component {
     constructor(props) {
         super(props);
     }
+
+    componentWillUnmount() {
+        this.props.clearStore();
+    } 
 
     render() {
         const {
@@ -19,7 +31,8 @@ class MoviePanel extends Component {
             overview,
             tagline,
             vote_average
-        } = mockData2;
+        } = this.props.movieInfo;
+
         return (
             <div className = 'moviePanel-wrapper'>
                 <div className = 'moviePanel-column-left'>
@@ -38,4 +51,11 @@ class MoviePanel extends Component {
     }
 }
 
-export default MoviePanel;
+export default connect(
+    state => ({
+        
+    }),
+    dispatch => ({
+        clearStore: () => dispatch({type:CLEAN_MOVIE_BY_ID}),
+    })
+)(MoviePanel);
