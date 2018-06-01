@@ -5,7 +5,7 @@ import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from "redux-thunk";
-import { HashRouter as Router, Route, Switch} from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 
 // tools
 import {composeWithDevTools} from "redux-devtools-extension";
@@ -15,9 +15,10 @@ import reducer from './reducers';
 import Button from './components/Button';
 import FoundMovie from './FoundMovie';
 // test
-import createHistory from 'history/createBrowserHistory';
+import createHistory from 'history/createHashHistory';
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux';
 import NotFound from './components/NotFound';
+
 const history = createHistory()
 const middleware = routerMiddleware(history)
 
@@ -28,6 +29,9 @@ const render = () => {
         <Provider store = {store} >
             <Router>
                 <Switch>
+                <Route exact path = '/'>
+                    <Redirect from = '/' to = '/movie?searchBy=title&sortBy=release_date&sortOrder=desc' /> 
+                </Route>
                 <Route exact path = '/movie' component = {App} />
                 <Route exact path = '/search/:id' component = {FoundMovie} />
                 <Route path = '*' component = {NotFound} />

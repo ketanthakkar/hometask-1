@@ -14,33 +14,35 @@ class FoundMovie extends Component {
     super(props);
   }
   
-  componentDidMount() {
-    console.log('==================', this.props.match)
+  componentDidUpdate() {
     const id = this.props.match.params.id;
     this.props.getMovieById(id);
+    this.props.getMovieByGenre('animation');
+  }
+
+  componentDidMount() {
+    const id = this.props.match.params.id;
+    this.props.getMovieById(id);
+    this.props.getMovieByGenre('animation');
   }
   
   render() {
-    if(this.props.movieInfo.movieById) {
-      const movieInfo = this.props.movieInfo.movieById;
-
       return (
         <Fragment>
-          <MoviePanel movieInfo = {movieInfo} />
+          <MoviePanel/>
           <MovieListGenre />
         </Fragment>
       )
     }
-    return null;
-  }
 }
 
-export default connect(
-  state => ({
-    movieInfo: state.getMovieById,
-  }),
-  dispatch => ({
+const mapDispatchToProps = dispatch => {
+  return {
     getMovieById: (id) => dispatch(getMovieById(id)),
     getMovieByGenre: (genre) => dispatch(getMovieByGenre(genre)),
-  })
+  }
+}
+export default connect(
+  null,
+  mapDispatchToProps
 )(FoundMovie)

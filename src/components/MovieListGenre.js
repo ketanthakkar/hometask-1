@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 // actions
 import getMovieByGenre from '../actions/getMovieByGenre';
+import { CLEAN_MOVIE_BY_GENRE } from '../actions/actionsType';
 
 // styles
 import '../styleModules/MovieListItems.css';
@@ -42,11 +43,20 @@ class MovieListGenre extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    movie: state.movieByGenre,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getMovies: () => dispatch(getDefaultMovies()),
+    cleanMovie: () => dispatch({type:CLEAN_MOVIE_BY_GENRE}),
+  }
+}
 export default connect(
-    state => ({
-        movie: state.movieByGenre,
-    }),
-    dispatch => ({
-        getMovies: () => dispatch(getDefaultMovies()),
-    })
+    mapStateToProps,
+    mapDispatchToProps
 )(MovieListGenre);

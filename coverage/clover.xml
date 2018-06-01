@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1526839338231" clover="3.2.0">
+  <project timestamp="1526839338232" name="All files">
+    <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7" elements="21" coveredelements="21" complexity="0" loc="12" ncloc="12" packages="2" files="8" classes="8">
+      <package name="components">
+        <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
+        <file name="Button.js" path="C:\epam\hometask\src\components\Button.js">
+          <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="3" type="stmt"/>
+        </file>
+        <file name="Description.js" path="C:\epam\hometask\src\components\Description.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="4" count="2" type="stmt"/>
+        </file>
+        <file name="Image.js" path="C:\epam\hometask\src\components\Image.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="5" count="2" type="stmt"/>
+        </file>
+        <file name="MovieItem.js" path="C:\epam\hometask\src\components\MovieItem.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
+        </file>
+        <file name="MovieVote.js" path="C:\epam\hometask\src\components\MovieVote.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="4" count="2" type="stmt"/>
+        </file>
+        <file name="SearchInput.js" path="C:\epam\hometask\src\components\SearchInput.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+        </file>
+        <file name="Tagline.js" path="C:\epam\hometask\src\components\Tagline.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="4" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="tests">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="setupTests.js" path="C:\epam\hometask\src\tests\setupTests.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="4" count="7" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>

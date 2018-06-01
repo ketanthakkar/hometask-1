@@ -1,6 +1,9 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+// actions
+import {CLEAN_SEARCH_MOVIE} from '../actions/actionsType';
 
 // components
 import MovieItem from './MovieItem';
@@ -13,11 +16,14 @@ import getDefaultMovies from '../actions/getDefaultMovies';
 import getMovieById from '../actions/getMovieById';
 
 
-class MovieListItems extends Component {
+class MovieListItems extends PureComponent {
   constructor(props) {
     super(props);
   }
 
+  componentWillUnmount() {
+      this.props.clear();
+  }
   render() {
     const { searchMovie } = this.props;
     let data;
@@ -42,13 +48,20 @@ class MovieListItems extends Component {
     );
   }
 }
-export default connect(
-    state => ({
+
+const mapStateToProps = state => {
+    return {
         movies: state.getDefaultMovies,
         searchMovie: state.searchMovie,
-    }),
-    dispatch => ({
-        getMovies: () => dispatch(getDefaultMovies()),
-        getMovieById: (id) => dispatch(getMovieById(id)),
-    })
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        clear: () => dispatch({type:CLEAN_SEARCH_MOVIE}),
+    }
+}
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
 )(MovieListItems);

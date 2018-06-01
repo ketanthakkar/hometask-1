@@ -2,6 +2,12 @@
     "verbose": true,
     "roots": ["./src/"],
     "moduleFileExtensions": ["js","jsx"],
-    "testPathIgnorePatterns": ["/node_modules/"]
+    "testPathIgnorePatterns": ["/node_modules/"],
+    "moduleNameMapper": {
+        "^.+\\.(css|less)$": "identity-obj-proxy"
+    },
+    "setupFiles": [
+        "./src/tests/setupTests.js"
+    ]
     
 }

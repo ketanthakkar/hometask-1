@@ -20,59 +20,47 @@ class SearchPanel extends Component {
             searchBy: 'title',
             search:'',
         }
+        this.handleSearch = this.handleSearch.bind(this);
+        this.handleChangeInput = this.handleChangeInput.bind(this);
+    }
+
+    updateQuery(query, value) {
+        let {params, pathname} = this.props;
+        if(params.get(query)) {
+            params.set(query, value);
+            window.location.replace( `#${pathname}?${params}`, null)
+        } else {
+            params.append(query,value);
+            window.location.replace( `#${pathname}?${params}`, null)
+        }
     }
 
     componentDidMount() {
-        const {params} = this.props;
+        const { params } = this.props;
 
         if(params.get('search')) {
             this.setState({
-                search: params.get('search')
+                search: params.get('search'),
             })
         }
-        this.props.searchMovie(params);
     }
 
-    handleClick = (e) => {
-        let {params} = this.props;
-        if(params.get('searchBy')) {
-            params.set('searchBy', e.target.id);
-            history.pushState(null, null, `#/movie?${params}`);
-        } else {
-            params.append('searchBy',e.target.id);
-            history.pushState(null, null, `#/movie?${params}`);
-        }
-        this.props.searchMovie(params);
-    }
-    
-    handleSortBy = (e) => {
-        let {params} = this.props;
-        if(params.get('sortBy')) {
-            params.set('sortBy', e.target.id);
-            history.pushState(null, null, `#/movie?${params}`);
-        } else {
-            params.append('sortBy',e.target.id);
-            history.pushState(null, null, `#/movie?${params}`);
-        }
-        this.props.searchMovie(params);
-    }
-
-    handleSearch = () => {
-        let {params} = this.props;
-        if(params.get('search')) {
-            params.set('search', this.state.search);
-            history.pushState(null, null, `#/movie?${params}`);
-        } else {
-            params.append('search',this.state.search);
-            history.pushState(null, null, `#/movie?${params}`);
-        }
-        this.props.searchMovie(params);
-    }
-
-    handleChangeInput = (e) => {
+    handleChangeInput(e) {
+        const { params, pathname} = this.props;
         this.setState({
             search:e.target.value,
         })
+        if(!e.target.value) {
+            params.delete('search');
+            window.location.replace( `#${pathname}?${params}`, null)
+        }
+    }
+
+    handleSearch() {
+        const {params} = this.props;
+        if(this.state.search) {
+            this.updateQuery('search',this.state.search);
+        }
     }
 
 
@@ -89,13 +77,13 @@ class SearchPanel extends Component {
                 <span className = 'searchPanel-title'> Search by </span>
                 <Button name = 'title' 
                         id = 'title'
-                        active = {this.state.searchBy}
-                        handleClick = {this.handleClick} 
+                        active = {this.props.params.get('searchBy')}
+                        handleClick = {() => this.updateQuery('searchBy', 'title')} 
                 />
                 <Button name = 'genre' 
                         id = 'genres'
-                        active = {this.state.searchBy}
-                        handleClick = {this.handleClick}
+                        active = {this.props.params.get('searchBy')}
+                        handleClick = {() => this.updateQuery('searchBy', 'genres')}
                 />
                 <Button 
                     name = 'search' 
@@ -105,16 +93,31 @@ class SearchPanel extends Component {
                 <div>
                     <span className = 'searchPanel-title'> sort by </span>
                     <Button 
-                        name = 'release data' 
-                        id = 'release_data'
+                        name = 'release date' 
+                        id = 'release_date'
                         active = {this.props.params.get('sortBy')}
-                        handleClick = {this.handleSortBy}
+                        handleClick = {() => this.updateQuery('sortBy', 'release_date')}
                     />
                     <Button 
                         name = 'rating' 
                         active = {this.props.params.get('sortBy')}
                         id = 'vote_average'
-                        handleClick = {this.handleSortBy}
+                        handleClick = {() => this.updateQuery('sortBy', 'vote_average')}
+                    />
+                </div>
+                <div>
+                    <span className = 'searchPanel-title'> sort order </span>
+                    <Button 
+                        name = 'desc' 
+                        id = 'desc'
+                        active = {this.props.params.get('sortOrder')}
+                        handleClick = {() => this.updateQuery('sortOrder', 'desc')}
+                    />
+                    <Button 
+                        name = 'asc' 
+                        active = {this.props.params.get('sortOrder')}
+                        id = 'asc'
+                        handleClick = {() => this.updateQuery('sortOrder', 'asc')}
                     />
                 </div>
             </div>
@@ -123,9 +126,9 @@ class SearchPanel extends Component {
 }
 
 
-const mapStateToProps = store => {
+const mapStateToProps = state => {
     return {
-    searchMovie: state.searchMovie,
+        searchMovie: state.searchMovie,
     }
 }
 const mapDispatchToProps = dispatch => {
