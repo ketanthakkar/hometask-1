@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1526839338231" clover="3.2.0">
-  <project timestamp="1526839338232" name="All files">
-    <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7" elements="21" coveredelements="21" complexity="0" loc="12" ncloc="12" packages="2" files="8" classes="8">
+<coverage generated="1527856104682" clover="3.2.0">
+  <project timestamp="1527856104683" name="All files">
+    <metrics statements="58" coveredstatements="46" conditionals="18" coveredconditionals="17" methods="16" coveredmethods="12" elements="92" coveredelements="75" complexity="0" loc="58" ncloc="58" packages="4" files="15" classes="15">
+      <package name="actions">
+        <metrics statements="13" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <file name="actionsType.js" path="C:\epam\hometask\src\actions\actionsType.js">
+          <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="4" type="stmt"/>
+          <line num="2" count="4" type="stmt"/>
+          <line num="3" count="4" type="stmt"/>
+          <line num="4" count="4" type="stmt"/>
+          <line num="5" count="4" type="stmt"/>
+          <line num="6" count="4" type="stmt"/>
+          <line num="7" count="4" type="stmt"/>
+          <line num="8" count="4" type="stmt"/>
+        </file>
+        <file name="getMovieByGenre.js" path="C:\epam\hometask\src\actions\getMovieByGenre.js">
+          <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+        </file>
+      </package>
       <package name="components">
-        <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
+        <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="8" coveredmethods="8"/>
         <file name="Button.js" path="C:\epam\hometask\src\components\Button.js">
           <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
           <line num="4" count="1" type="stmt"/>
-          <line num="5" count="3" type="stmt"/>
+          <line num="6" count="3" type="stmt"/>
         </file>
         <file name="Description.js" path="C:\epam\hometask\src\components\Description.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -36,12 +58,63 @@
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
           <line num="4" count="2" type="stmt"/>
         </file>
+        <file name="Title.js" path="C:\epam\hometask\src\components\Title.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+          <line num="4" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="reducers">
+        <metrics statements="32" coveredstatements="23" conditionals="16" coveredconditionals="15" methods="4" coveredmethods="4"/>
+        <file name="getDefaultMovies.js" path="C:\epam\hometask\src\reducers\getDefaultMovies.js">
+          <metrics statements="8" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="4" count="3" type="cond" truecount="3" falsecount="0"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+        </file>
+        <file name="getMovieById.js" path="C:\epam\hometask\src\reducers\getMovieById.js">
+          <metrics statements="8" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="6" count="3" type="cond" truecount="3" falsecount="0"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+        </file>
+        <file name="movieByGenre.js" path="C:\epam\hometask\src\reducers\movieByGenre.js">
+          <metrics statements="8" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="9" count="3" type="cond" truecount="3" falsecount="0"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+        </file>
+        <file name="searchMovie.js" path="C:\epam\hometask\src\reducers\searchMovie.js">
+          <metrics statements="8" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+          <line num="6" count="2" type="cond" truecount="2" falsecount="1"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+        </file>
       </package>
       <package name="tests">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="setupTests.js" path="C:\epam\hometask\src\tests\setupTests.js">
           <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-          <line num="4" count="7" type="stmt"/>
+          <line num="4" count="12" type="stmt"/>
         </file>
       </package>
     </metrics>

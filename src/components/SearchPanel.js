@@ -125,18 +125,12 @@ class SearchPanel extends Component {
     }
 }
 
-
-const mapStateToProps = state => {
-    return {
-        searchMovie: state.searchMovie,
-    }
-}
 const mapDispatchToProps = dispatch => {
     return {
       searchMovie: (params) => dispatch(searchMovie(params)),
     }
 }
 export default connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(SearchPanel);

@@ -25,7 +25,8 @@ class MoviePanel extends Component {
     } 
 
     render() {
-        let data = null
+        let data = <div className = 'moviePanel-wrapper' />
+        
         if(this.props.movieInfo.movieById) {
             const {
                 poster_path,

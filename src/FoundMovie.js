@@ -17,13 +17,11 @@ class FoundMovie extends Component {
   componentDidUpdate() {
     const id = this.props.match.params.id;
     this.props.getMovieById(id);
-    this.props.getMovieByGenre('animation');
   }
 
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.getMovieById(id);
-    this.props.getMovieByGenre('animation');
   }
   
   render() {

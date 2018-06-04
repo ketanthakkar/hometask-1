@@ -17,6 +17,10 @@ class MovieListGenre extends Component {
     super(props);
   }
 
+  componentWillUnmount() {
+    this.props.cleanMovie();
+  }
+
   render() {
     const { movie } = this.props;
     let data;
@@ -52,7 +56,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getMovies: () => dispatch(getDefaultMovies()),
+    getMovieByGenre: (genre) => dispatch(getMovieByGenre(genre)),
     cleanMovie: () => dispatch({type:CLEAN_MOVIE_BY_GENRE}),
   }
 }

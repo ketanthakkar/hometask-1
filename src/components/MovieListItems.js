@@ -28,18 +28,22 @@ class MovieListItems extends PureComponent {
     const { searchMovie } = this.props;
     let data;
     if (searchMovie.searchMovie) {
-      data = searchMovie.searchMovie.data.map(item => {
-        return (
-        <Link to = {{pathname:`/search/${item.id}`, state:item.genres[0]}}  key = {item.id}>
-            <MovieItem 
-                    url = {item.poster_path}
-                    name = {item.title}
-                    date = {item.release_date}
-                    genre = {item.genres}
-            />
-        </Link>
-        )
-      })  
+      if(searchMovie.searchMovie.data.length === 0) {
+        data = <h1> Movie not founnd </h1>
+      } else {
+        data = searchMovie.searchMovie.data.map(item => {
+            return (
+            <Link to = {{pathname:`/search/${item.id}`, state:item.genres[0]}}  key = {item.id}>
+                <MovieItem 
+                        url = {item.poster_path}
+                        name = {item.title}
+                        date = {item.release_date}
+                        genre = {item.genres}
+                />
+            </Link>
+            )
+        }) 
+        } 
     } 
     return (
         <div className = 'movieList-wrapper'>
@@ -51,7 +55,6 @@ class MovieListItems extends PureComponent {
 
 const mapStateToProps = state => {
     return {
-        movies: state.getDefaultMovies,
         searchMovie: state.searchMovie,
     }
 }
