@@ -6,7 +6,7 @@ import Button from '../components/Button';
 describe('Button', () => {
     it('should render unactive button', () => {
       const render = shallow(
-          <Button name = 'test' />
+          <Button name = 'test' id = 'test' active = 'unactive'/>
       );
     
       expect(render.find('button').hasClass('button--unactive')).toBe(true);
@@ -15,7 +15,7 @@ describe('Button', () => {
 
     it('should render active button', () => {
       const render = shallow(
-        <Button name = 'test' active/>
+        <Button name = 'test' active = 'test' id = 'test' />
       );
       expect(render.find('button').hasClass('button--active')).toBe(true);
       expect(render).toMatchSnapshot();
