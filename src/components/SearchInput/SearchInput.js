@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styleModules/SearchInput.css';
+import './SearchInput.css';
 
 const SearchInput = () => {
     return <input type = 'text' className = 'searchInput'/>

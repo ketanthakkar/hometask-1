@@ -1,6 +1,6 @@
 import React from 'react';
-import Image from './Image';
-import '../styleModules/MovieItem.css';
+import Image from '../Image';
+import './MovieItem.css';
 
 const MovieItem = ({url, name, date, genre}) => {
     return (

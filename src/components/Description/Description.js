@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styleModules/Description.css';
+import './Description.css';
 
 const Description = ({desc}) => <p className = 'desc'> {desc} </p>;
 

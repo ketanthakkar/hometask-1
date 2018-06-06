@@ -2,17 +2,17 @@
 import React , {Component, Fragment} from 'react';
 
 // smth
-import mockData from './mockData';
+import mockData from '../../mockData';
 
 // components
-import MoviePanel from './components/MoviePanel';
-import MovieListItems from './components/MovieListItems';
-import ErrorBoundary from './components/ErrorBoundary';
-import SearchPanel from './components/SearchPanel';
+import MoviePanel from '../../components/MoviePanel';
+import MovieListItems from '../../components/MovieListItems';
+import ErrorBoundary from '../../components/ErrorBoundary';
+import SearchPanel from '../../components/SearchPanel';
 // styles
-import './styleModules/App.css';
+import './HomePage.css';
 
-export default class App extends React.Component {
+export default class HomePage extends Component {
 
     render() {
         return (

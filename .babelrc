@@ -6,7 +6,8 @@
             }
         ],
         "react",
-        "env"
+        "env",
+        "stage-2"
     ],
 
     "plugins": [

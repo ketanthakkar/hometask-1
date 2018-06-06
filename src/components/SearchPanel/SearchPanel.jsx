@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import '../styleModules/SearchPanel.css';
-import SearchInput from './SearchInput';
-import Button from './Button';
+import './SearchPanel.css';
+import SearchInput from '../SearchInput';
+import Button from '../Button';
 
 class SearchPanel extends Component {
     constructor(props) {
@@ -16,7 +16,6 @@ class SearchPanel extends Component {
         this.setState((prevState, props) => {
             return {active: !prevState.active}
         });
-        console.log('lakjf;kf')
     }
 
     render() {

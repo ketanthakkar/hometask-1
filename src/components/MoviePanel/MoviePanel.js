@@ -1,11 +1,11 @@
 import React, {Component} from 'React';
-import mockData2 from '../mockData2';
-import Image from './Image';
-import Title from './Title';
-import Description from './Description';
-import Tagline from './Tagline';
-import MovieVote from './MovieVote';
-import '../styleModules/MoviePanel.css';
+import mockData2 from '../../mockData2';
+import Image from '../Image';
+import Title from '../Title';
+import Description from '../Description';
+import Tagline from '../Tagline';
+import MovieVote from '../MovieVote';
+import './MoviePanel.css';
 
 class MoviePanel extends Component {
     constructor(props) {

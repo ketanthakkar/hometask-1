@@ -1,7 +1,7 @@
 import React from 'react';
-import mockData from '../mockData';
-import MovieItem from './MovieItem';
-import '../styleModules/MovieListItems.css';
+import mockData from '../../mockData';
+import MovieItem from '../MovieItem';
+import './MovieListItems.css';
 
 const MovieListItems = () => {
     const data = mockData.data.map(item => {
