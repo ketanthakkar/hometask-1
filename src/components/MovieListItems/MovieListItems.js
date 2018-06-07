@@ -4,7 +4,7 @@ import MovieItem from '../MovieItem';
 import './MovieListItems.css';
 
 const MovieListItems = () => {
-    const data = mockData.data.map(item => {
+    const data = this.props.data.map(item => {
         return (
             <MovieItem url = {item.poster_path}
                        name = {item.title}

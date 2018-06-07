@@ -14,13 +14,17 @@ import './HomePage.css';
 
 export default class HomePage extends Component {
 
+    componentWillMount() {
+        this.props.fetchUsers();
+        this.props.fetchDefaultMovie();
+    }
+
+
     render() {
+        let data = this.props.users.map(item => <p key = {item.id}> {item.name}</p>);
         return (
             <div className = 'app-wrapper'>
-                <SearchPanel />
-                <ErrorBoundary>
-                    <MovieListItems />
-                </ErrorBoundary>
+                {data}
             </div>
         );
     }
