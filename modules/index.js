@@ -4,6 +4,7 @@ import { all } from 'redux-saga/effects';
 import {
   usersReduces,
   movieReducer,
+  movieByIdReducer,
   usersSaga
 } from './users';
 
@@ -16,6 +17,7 @@ function* rootSaga() {
 const rootReducer = combineReducers({
   users: usersReduces,
   movies: movieReducer,
+  movieById: movieByIdReducer,
 });
 
 export {

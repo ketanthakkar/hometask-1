@@ -6,10 +6,29 @@ const FETCH_USER_BY_ID = 'users/FETCH_BY_ID';
 const UPDATE = 'users/UPDATE';
 const UPDATE_CURRENT_USER = 'users/UPDATE_CURRENT_USER';
 const GET_DEFAULT_MOVIE = 'GET_DEFAULT_MOVIE';
+const GET_MOVIE = 'GET_MOVIE';
+const GET_MOVIE_BY_ID = 'GET_MOVIE_BY_ID';
+const GET_FILM = 'GET_FILM';
 
 // Action Creators
-export const fetchDefaultMovie = () => ({
+export const fetchDefaultMovie = params => ({
   type:GET_DEFAULT_MOVIE,
+  payload: params,
+})
+
+export const getMovie = (movie) => ({
+  type:GET_MOVIE,
+  payload: movie,
+})
+
+export const movieById = id => ({
+  type: GET_MOVIE_BY_ID,
+  payload: id
+})
+
+export const getMovieById = movie => ({
+  type:GET_FILM,
+  payload: movie,
 })
 
 export const fetchUsers = () => ({
@@ -31,11 +50,20 @@ export const updateCurrentUser = user => ({
 });
 
 // Sagas
-export function* fetchDefaultMovieAsync() {
-  const response = yield call(fetch, 'http://react-cdp-api.herokuapp.com/movies');
+export function* fetchMovieByIdAsync(action) {
+  const response = yield call(fetch, `http://react-cdp-api.herokuapp.com/movies${action.payload}`);
   const movies = yield response.json();
-  // yield put(fetchDefaultMovie())
-  return movies;
+
+  yield put(getMovieById(movies));
+}
+export function* watchMovieById() {
+  yield takeLatest(GET_MOVIE_BY_ID, fetchMovieByIdAsync);
+}
+export function* fetchDefaultMovieAsync(action) {
+  const response = yield call(fetch, `http://react-cdp-api.herokuapp.com/movies${action.payload}`);
+  const movies = yield response.json();
+  yield put(getMovie(movies))
+
 }
 export function* watchFetchDefaultMovie() {
   yield takeLatest(GET_DEFAULT_MOVIE, fetchDefaultMovieAsync)
@@ -60,12 +88,13 @@ export function* watchFetchUserById() {
   yield takeLatest(FETCH_USER_BY_ID, fetchUserByIdAsync);
 }
 
-// Users Saga
+// Users Sagas
 export function* usersSaga() {
   yield all([
     watchFetchUsers(),
     watchFetchUserById(),
-    watchFetchDefaultMovie(),    
+    watchFetchDefaultMovie(),   
+    watchMovieById(), 
   ]);
 }
 
@@ -100,12 +129,36 @@ export const usersReduces = (state = INITIAL_STATE, action = {}) => {
   }
 };
 
-export const movieReducer = (state = {data:[],}, action = {}) => {
+export const movieReducer = (state = {data:[],}, action) => {
   switch (action.type) {
     case GET_DEFAULT_MOVIE:
       return {
         ...state,
         movie: action.payload,
+      }
+      break;
+    case GET_MOVIE:
+      return {
+        ...state,
+        ...action.payload,
+      }
+    default:
+      return state;
+  }
+}
+
+export const movieByIdReducer = (state = {},action) => {
+  switch (action.type) {
+    case GET_MOVIE_BY_ID:
+      return {
+        ...state, 
+        movie:action.payload,
+      }
+      break;
+    case GET_FILM:
+      return {
+        ...state,
+        ...action.payload,
       }
       break;
     default:

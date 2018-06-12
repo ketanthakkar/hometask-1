@@ -14,17 +14,36 @@ import './HomePage.css';
 
 export default class HomePage extends Component {
 
-    componentWillMount() {
-        this.props.fetchUsers();
-        this.props.fetchDefaultMovie();
+    searchParse = (string) => {
+        if (string === '') return {};
+        let arr = string.slice(1).split('&');
+        return arr.reduce((acc, curr) => {
+            let item = curr.split('=');
+            return {
+                ...acc,
+                [item[0]]:item[1],
+            }
+        }, {})
     }
 
+    componentWillMount() {
+        console.log('updata +++++++++++',this.props.location.search);
+        this.props.fetchDefaultMovie(this.props.location.search);
+    }
 
     render() {
-        let data = this.props.users.map(item => <p key = {item.id}> {item.name}</p>);
+        const { movies, location } = this.props;
+        const params = this.searchParse(location.search);
+        console.log(params);
         return (
             <div className = 'app-wrapper'>
-                {data}
+            <button onClick = {() => history.pushState(null,null, '/kldsajf;lkdsjf')}>
+            push
+            </button>
+                <SearchPanel  params = {params}/>
+                <ErrorBoundary>
+                    <MovieListItems data = {movies.data} />
+                </ErrorBoundary>
             </div>
         );
     }

@@ -19,7 +19,8 @@ class MoviePanel extends Component {
             overview,
             tagline,
             vote_average
-        } = mockData2;
+        } = this.props;
+
         return (
             <div className = 'moviePanel-wrapper'>
                 <div className = 'moviePanel-column-left'>
