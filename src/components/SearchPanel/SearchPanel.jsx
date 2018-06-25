@@ -31,7 +31,7 @@ class SearchPanel extends Component {
         let params = this.props.params;
         params.search = this.state.search;
         if (this.state.search !== "") {
-           window.location.replace(`?searchBy=title&search=${this.state.search}`);
+           this.updateQuery('search', this.state.search);
         }
         
     }

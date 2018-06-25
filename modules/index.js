@@ -5,6 +5,7 @@ import {
   usersReduces,
   movieReducer,
   movieByIdReducer,
+  movieByGenre,
   usersSaga
 } from './users';
 
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   users: usersReduces,
   movies: movieReducer,
   movieById: movieByIdReducer,
+  movieByGenre: movieByGenre,
 });
 
 export {

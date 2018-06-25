@@ -12,7 +12,6 @@ const Root = ({ Router, location, context, store }) => (
   <Provider store = { store } >
     <Router location={location} context={context}>
       <div>
-        <h1>Server Side Renderig</h1>
         <Route exact path = '/home' component = {HomePage} />
         <Route exact path = '/search/:id' component = {SearchPage} />
       </div>

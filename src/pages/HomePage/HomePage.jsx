@@ -27,14 +27,13 @@ export default class HomePage extends Component {
     }
 
     componentWillMount() {
-        console.log('updata +++++++++++',this.props.location.search);
         this.props.fetchDefaultMovie(this.props.location.search);
     }
 
     render() {
         const { movies, location } = this.props;
         const params = this.searchParse(location.search);
-        console.log(params);
+
         return (
             <div className = 'app-wrapper'>
             <button onClick = {() => history.pushState(null,null, '/kldsajf;lkdsjf')}>

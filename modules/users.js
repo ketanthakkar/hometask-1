@@ -1,5 +1,7 @@
 import { call, put, all, takeLatest } from 'redux-saga/effects';
 
+
+const url = 'http://react-cdp-api.herokuapp.com';
 // Actions
 const FETCH_USERS = 'users/FETCH';
 const FETCH_USER_BY_ID = 'users/FETCH_BY_ID';
@@ -9,6 +11,7 @@ const GET_DEFAULT_MOVIE = 'GET_DEFAULT_MOVIE';
 const GET_MOVIE = 'GET_MOVIE';
 const GET_MOVIE_BY_ID = 'GET_MOVIE_BY_ID';
 const GET_FILM = 'GET_FILM';
+const GET_MOVIE_BY_GENRE = 'GET_MOVIE_BY_GENRE';
 
 // Action Creators
 export const fetchDefaultMovie = params => ({
@@ -28,6 +31,11 @@ export const movieById = id => ({
 
 export const getMovieById = movie => ({
   type:GET_FILM,
+  payload: movie,
+})
+
+export const getMovieByGerne = movie => ({
+  type:GET_MOVIE_BY_GENRE,
   payload: movie,
 })
 
@@ -51,16 +59,22 @@ export const updateCurrentUser = user => ({
 
 // Sagas
 export function* fetchMovieByIdAsync(action) {
-  const response = yield call(fetch, `http://react-cdp-api.herokuapp.com/movies${action.payload}`);
+  const response = yield call(fetch, `${url}/movies/${action.payload}`);
   const movies = yield response.json();
 
+ 
+
+  // const res = yield call(fetch, `${url}/movies?searchBy=genres&search=${movies.genres[0]}&sortOrder=desc`);
+  // const movieByGenres = yield response.json();
+
   yield put(getMovieById(movies));
+  // yield put(getMovieByGerne(movieByGenres))
 }
 export function* watchMovieById() {
   yield takeLatest(GET_MOVIE_BY_ID, fetchMovieByIdAsync);
 }
 export function* fetchDefaultMovieAsync(action) {
-  const response = yield call(fetch, `http://react-cdp-api.herokuapp.com/movies${action.payload}`);
+  const response = yield call(fetch, `${url}/movies${action.payload}`);
   const movies = yield response.json();
   yield put(getMovie(movies))
 
@@ -156,6 +170,19 @@ export const movieByIdReducer = (state = {},action) => {
       }
       break;
     case GET_FILM:
+      return {
+        ...state,
+        ...action.payload,
+      }
+      break;
+    default:
+      return state;
+  }
+}
+
+export const movieByGenre = (state = {}, action) => {
+  switch (action.type) {
+    case GET_MOVIE_BY_GENRE:
       return {
         ...state,
         ...action.payload,
